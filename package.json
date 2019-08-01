@@ -23,6 +23,10 @@
   },
   "author": "Agoda",
   "icon": "icons/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agoda-com/agoda-design-toolkit.git"
+  },
   "dependencies": {
     "@skpm/fs": "^0.2.5",
     "mocha-js-delegate": "^0.1.1",
