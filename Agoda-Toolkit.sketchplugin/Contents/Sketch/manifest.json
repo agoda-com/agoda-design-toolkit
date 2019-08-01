@@ -1,0 +1,350 @@
+{
+  "name": "Agoda Toolkit",
+  "description": "Quickly generate real content for your design workflow.",
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "icon": "./icons/icon.png",
+  "suppliesData": true,
+  "identifier": "com.agoda.sketchplugin.datagenerator.command",
+  "commands": [
+    {
+      "script": "command.js",
+      "handlers": {
+        "actions": {
+          "Startup": "onStartup",
+          "Shutdown": "onShutdown",
+          "SupplyHotelName": "onSupplyHotelName",
+          "SupplyAddress": "onSupplyAddress",
+          "SupplyCountry": "onSupplyCountry",
+          "SupplyHeroImage": "onSupplyHeroImage",
+          "SupplyRoomImage": "onSupplyRoomImage",
+          "SupplyFacilityImage": "onSupplyFacilityImage"
+        }
+      }
+    },
+    {
+      "name": "Open Panel",
+      "identifier": "open_panel",
+      "script": "command.js",
+      "description": "Show Agoda content generator window.",
+      "icon": "./icons/app_icon.png",
+      "handlers": {
+        "run": "openPanel",
+        "actions": {
+          "SelectionChanged.finish": "onSelectionChange"
+        }
+      }
+    },
+    {
+      "name": "Short",
+      "identifier": "AddressShort",
+      "script": "command.js",
+      "icon": "./icons/home.png",
+      "handler": "commandTextAddressShort"
+    },
+    {
+      "name": "Medium",
+      "identifier": "AddressMedium",
+      "script": "command.js",
+      "icon": "./icons/home.png",
+      "handler": "commandTextAddressMedium"
+    },
+    {
+      "name": "Long",
+      "identifier": "AddressLong",
+      "script": "command.js",
+      "icon": "./icons/home.png",
+      "handler": "commandTextAddressLong"
+    },
+    {
+      "name": "Short",
+      "identifier": "AirportShort",
+      "script": "command.js",
+      "icon": "./icons/airport.png",
+      "handler": "commandTextAirportShort"
+    },
+    {
+      "name": "Medium",
+      "identifier": "AirportMedium",
+      "script": "command.js",
+      "icon": "./icons/airport.png",
+      "handler": "commandTextAirportMedium"
+    },
+    {
+      "name": "Long",
+      "identifier": "AirportLong",
+      "script": "command.js",
+      "icon": "./icons/airport.png",
+      "handler": "commandTextAirportLong"
+    },
+    {
+      "name": "Short",
+      "identifier": "CityShort",
+      "script": "command.js",
+      "icon": "./icons/city.png",
+      "handler": "commandTextCityShort"
+    },
+    {
+      "name": "Medium",
+      "identifier": "CityMedium",
+      "script": "command.js",
+      "icon": "./icons/city.png",
+      "handler": "commandTextCityMedium"
+    },
+    {
+      "name": "Long",
+      "identifier": "CityLong",
+      "script": "command.js",
+      "icon": "./icons/city.png",
+      "handler": "commandTextCityLong"
+    },
+    {
+      "name": "Short",
+      "identifier": "CountryShort",
+      "script": "command.js",
+      "icon": "./icons/country.png",
+      "handler": "commandTextCountryShort"
+    },
+    {
+      "name": "Medium",
+      "identifier": "CountryMedium",
+      "script": "command.js",
+      "icon": "./icons/country.png",
+      "handler": "commandTextCountryMedium"
+    },
+    {
+      "name": "Long",
+      "identifier": "CountryLong",
+      "script": "command.js",
+      "icon": "./icons/country.png",
+      "handler": "commandTextCountryLong"
+    },
+    {
+      "name": "Short",
+      "identifier": "PropertyShort",
+      "script": "command.js",
+      "icon": "./icons/hotel.png",
+      "handler": "commandTextPropertyShort"
+    },
+    {
+      "name": "Medium",
+      "identifier": "PropertyMedium",
+      "script": "command.js",
+      "icon": "./icons/hotel.png",
+      "handler": "commandTextPropertyMedium"
+    },
+    {
+      "name": "Long",
+      "identifier": "PropertyLong",
+      "script": "command.js",
+      "icon": "./icons/hotel.png",
+      "handler": "commandTextPropertyLong"
+    },
+    {
+      "name": "Short",
+      "identifier": "WeatherShort",
+      "script": "command.js",
+      "icon": "./icons/weather.png",
+      "handler": "commandTextWeatherShort"
+    },
+    {
+      "name": "Medium",
+      "identifier": "WeatherMedium",
+      "script": "command.js",
+      "icon": "./icons/weather.png",
+      "handler": "commandTextWeatherMedium"
+    },
+    {
+      "name": "Long",
+      "identifier": "WeatherLong",
+      "script": "command.js",
+      "icon": "./icons/weather.png",
+      "handler": "commandTextWeatherLong"
+    },
+    {
+      "name": "Short",
+      "identifier": "CurrencyShort",
+      "script": "command.js",
+      "icon": "./icons/currency.png",
+      "handler": "commandTextCurrencyShort"
+    },
+    {
+      "name": "Medium",
+      "identifier": "CurrencyMedium",
+      "script": "command.js",
+      "icon": "./icons/currency.png",
+      "handler": "commandTextCurrencyMedium"
+    },
+    {
+      "name": "Long",
+      "identifier": "CurrencyLong",
+      "script": "command.js",
+      "icon": "./icons/currency.png",
+      "handler": "commandTextCurrencyLong"
+    },
+    {
+      "name": "Short",
+      "identifier": "TimestampShort",
+      "script": "command.js",
+      "icon": "./icons/timer.png",
+      "handler": "commandTextTimestampShort"
+    },
+    {
+      "name": "Medium",
+      "identifier": "TimestampMedium",
+      "script": "command.js",
+      "icon": "./icons/timer.png",
+      "handler": "commandTextTimestampMedium"
+    },
+    {
+      "name": "Long",
+      "identifier": "TimestampLong",
+      "script": "command.js",
+      "icon": "./icons/timer.png",
+      "handler": "commandTextTimestampLong"
+    },
+    {
+      "name": "Short",
+      "identifier": "NameShort",
+      "script": "command.js",
+      "icon": "./icons/person.png",
+      "handler": "commandTextNameShort"
+    },
+    {
+      "name": "Medium",
+      "identifier": "NameMedium",
+      "script": "command.js",
+      "icon": "./icons/person.png",
+      "handler": "commandTextNameMedium"
+    },
+    {
+      "name": "Long",
+      "identifier": "NameLong",
+      "script": "command.js",
+      "icon": "./icons/person.png",
+      "handler": "commandTextNameLong"
+    },
+    {
+      "name": "Hero",
+      "identifier": "ImagePropertyHero",
+      "script": "command.js",
+      "icon": "./icons/hotel.png",
+      "handler": "commandImagePropertyHero"
+    },
+    {
+      "name": "Room",
+      "identifier": "ImagePropertyRoom",
+      "script": "command.js",
+      "icon": "./icons/hotel.png",
+      "handler": "commandImagePropertyRoom"
+    },
+    {
+      "name": "Facilities",
+      "identifier": "ImagePropertyFacilities",
+      "script": "command.js",
+      "icon": "./icons/hotel.png",
+      "handler": "commandImagePropertyFacilities"
+    }
+  ],
+  "menu": {
+    "title": "🛠 Agoda Toolkit",
+    "items": [
+      "open_panel",
+      "-",
+      {
+        "title": "Text",
+        "items": [
+          {
+            "title": "Address",
+            "items": [
+              "AddressShort",
+              "AddressMedium",
+              "AddressLong"
+            ]
+          },
+          {
+            "title": "Airport",
+            "items": [
+              "AirportShort",
+              "AirportMedium",
+              "AirportLong"
+            ]
+          },
+          {
+            "title": "City",
+            "items": [
+              "CityShort",
+              "CityMedium",
+              "CityLong"
+            ]
+          },
+          {
+            "title": "Country",
+            "items": [
+              "CountryShort",
+              "CountryMedium",
+              "CountryLong"
+            ]
+          },
+          {
+            "title": "Property",
+            "items": [
+              "PropertyShort",
+              "PropertyMedium",
+              "PropertyLong"
+            ]
+          },
+          {
+            "title": "Weather",
+            "items": [
+              "WeatherShort",
+              "WeatherMedium",
+              "WeatherLong"
+            ]
+          },
+          {
+            "title": "Currency",
+            "items": [
+              "CurrencyShort",
+              "CurrencyMedium",
+              "CurrencyLong"
+            ]
+          },
+          {
+            "title": "Timestamp",
+            "items": [
+              "TimestampShort",
+              "TimestampMedium",
+              "TimestampLong"
+            ]
+          },
+          {
+            "title": "Name",
+            "items": [
+              "NameShort",
+              "NameMedium",
+              "NameLong"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Image",
+        "items": [
+          {
+            "title": "Property",
+            "items": [
+              "ImagePropertyHero",
+              "ImagePropertyRoom",
+              "ImagePropertyFacilities"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "version": "2.0.0",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
+  "author": "Agoda"
+}
