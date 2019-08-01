@@ -1,9 +1,9 @@
 # Agoda Toolkit 2.2
 
 Quickly generate real content for your design workflow
-👍[Download here]()
+👍[Download here](https://github.com/agoda-com/agoda-design-toolkit/releases/download/v2.2.2/Agoda-Toolkit.sketchplugin.zip)
 ![plugin](image_preview.png "plugin")
-👍[Download here]()
+👍[Download here](https://github.com/agoda-com/agoda-design-toolkit/releases/download/v2.2.2/Agoda-Toolkit.sketchplugin.zip)
 
 #### Current features
 - Strings: `Short`, `Medium`, `Long`
