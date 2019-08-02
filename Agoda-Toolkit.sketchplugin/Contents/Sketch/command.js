@@ -1894,7 +1894,7 @@ function openPanel(context) {
   // Create the WebView with a request to a Web page in Contents/Resources/
 
   var webView = WebView.alloc().initWithFrame(NSMakeRect(0, 0, panelWidth, panelHeight - 44));
-  var request = NSURLRequest.requestWithURL(context.plugin.urlForResourceNamed("webView-hdifiuqhef.html"));
+  var request = NSURLRequest.requestWithURL(context.plugin.urlForResourceNamed("webView-300-test1.html"));
   webView.mainFrame().loadRequest(request); // Prevent it from drawing a white background
 
   webView.setDrawsBackground(false); // Access the Web page's JavaScript environment
@@ -2166,6 +2166,8 @@ function fetchImage(url, ingnoreCache) {
 }
 
 function actionControl(context, action) {
+  log(action);
+
   switch (action.action) {
     case "currency":
       textCurrency(context, action);
@@ -2259,7 +2261,7 @@ function textFromData(context, action) {
   var layerData = getSelectedTextLayer(context);
   var targetArray = action.data.slice(0);
   var randomisation = action.randomisation;
-  var ranNum = getRandom(0, targetArray.length - 1);
+  var ranNum = getRandom(0, targetArray.length - 1); // log(targetArray)
 
   if (layerData) {
     for (var i = 0; i < layerData.layers.length; i++) {
