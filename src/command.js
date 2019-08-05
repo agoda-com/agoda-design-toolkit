@@ -192,7 +192,8 @@ function saveTempFileFormImageData(imageData){
 // Open Panel Function ==========================================================================//
 //===============================================================================================//
 export function openPanel(context) {
-	var panelWidth = 340;
+	// var panelWidth = 340;
+	var panelWidth = 430
     var panelHeight = 590;
 
 	// Create an NSThread dictionary with a specific identifier
