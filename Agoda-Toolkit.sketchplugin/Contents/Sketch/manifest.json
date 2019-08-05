@@ -16,6 +16,11 @@
           "SupplyHotelName": "onSupplyHotelName",
           "SupplyAddress": "onSupplyAddress",
           "SupplyCountry": "onSupplyCountry",
+          "SupplyAirport": "onSupplyAirport",
+          "SupplyCity": "onSupplyCity",
+          "SupplyWeather": "onSupplyWeather",
+          "SupplyTimestamp": "onSupplyTimestamp",
+          "SupplyName": "onSupplyName",
           "SupplyHeroImage": "onSupplyHeroImage",
           "SupplyRoomImage": "onSupplyRoomImage",
           "SupplyFacilityImage": "onSupplyFacilityImage"
@@ -343,7 +348,7 @@
       }
     ]
   },
-  "version": "2.2.1",
+  "version": "2.2.2",
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://raw.githubusercontent.com/agoda-com/agoda-design-toolkit/master/.appcast.xml",
   "author": "Agoda"

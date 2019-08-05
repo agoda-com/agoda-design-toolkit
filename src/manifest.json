@@ -16,6 +16,11 @@
 				"SupplyHotelName": "onSupplyHotelName",
 				"SupplyAddress": "onSupplyAddress",
 				"SupplyCountry": "onSupplyCountry",
+				"SupplyAirport": "onSupplyAirport",
+				"SupplyCity": "onSupplyCity",
+				"SupplyWeather": "onSupplyWeather",
+				"SupplyTimestamp": "onSupplyTimestamp",
+				"SupplyName": "onSupplyName",
 				"SupplyHeroImage": "onSupplyHeroImage",
 				"SupplyRoomImage": "onSupplyRoomImage",
 				"SupplyFacilityImage": "onSupplyFacilityImage"
