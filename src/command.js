@@ -39,9 +39,18 @@ const FOLDER = path.join(os.tmpdir(), IDENTITY)
 //===============================================================================================//
 export function onStartup() {
 	// DataSupplier.registerDataSupplier('public.image', 'Hotel Property Images', 'SupplyPropertyImage');
+	// Text
 	DataSupplier.registerDataSupplier('public.text', 'Hotel Names', 'SupplyHotelName')
 	DataSupplier.registerDataSupplier('public.text', 'Address', 'SupplyAddress')
 	DataSupplier.registerDataSupplier('public.text', 'Countries', 'SupplyCountry')
+	DataSupplier.registerDataSupplier('public.text', 'Airport', 'SupplyAirport')
+	DataSupplier.registerDataSupplier('public.text', 'Cities', 'SupplyCity')
+	DataSupplier.registerDataSupplier('public.text', 'Weather', 'SupplyWeather')
+	DataSupplier.registerDataSupplier('public.text', 'Timestamp', 'SupplyTimestamp')
+	DataSupplier.registerDataSupplier('public.text', 'Person names', 'SupplyName')
+	// DataSupplier.registerDataSupplier('public.text', 'Currency', 'SupplyCurrency')
+
+	// Image
 	DataSupplier.registerDataSupplier('public.image', 'Hotel Front Images', 'SupplyHeroImage')
 	DataSupplier.registerDataSupplier('public.image', 'Hotel Room Images', 'SupplyRoomImage')
 	DataSupplier.registerDataSupplier('public.image', 'Hotel Facility Images', 'SupplyFacilityImage')
@@ -81,6 +90,41 @@ export function onSupplyCountry(context) {
 	getAndSupplyDataForItems(dataKey, items, "country")
 }
 
+export function onSupplyAirport(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "airports")
+}
+
+export function onSupplyCity(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "cities")
+}
+
+export function onSupplyWeather(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "weather")
+}
+
+export function onSupplyName(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "names")
+}
+
+export function onSupplyTimestamp(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "timestamp")
+}
+
 export function onSupplyHeroImage(context) {
 	let dataKey = context.data.key
 	let items = util.toArray(context.data.items).map(sketch.fromNative)
@@ -103,7 +147,7 @@ export function onSupplyFacilityImage(context){
 }
 
 function getAndSupplyDataForItems(dataKey, items, dataAddress){
-	UI.message(Messaging.downloading)
+	// UI.message(Messaging.downloading)
 	fetchData((data) => {
 		items.forEach((_, index) => {
 			let targetData = mergeArrays([
@@ -116,7 +160,7 @@ function getAndSupplyDataForItems(dataKey, items, dataAddress){
 			let selected = targetData[targetDataIndex]
 
 			DataSupplier.supplyDataAtIndex(dataKey, selected, index)
-			UI.message(Messaging.complete)
+			// UI.message(Messaging.complete)
 		})
 	})
 }

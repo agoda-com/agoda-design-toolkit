@@ -1625,7 +1625,7 @@ module.exports = fetch
 /*!************************!*\
   !*** ./src/command.js ***!
   \************************/
-/*! exports provided: onStartup, onShutdown, onSupplyHotelName, onSupplyAddress, onSupplyCountry, onSupplyHeroImage, onSupplyRoomImage, onSupplyFacilityImage, openPanel, onSelectionChange, commandTextAddressShort, commandTextAddressMedium, commandTextAddressLong, commandTextAirportShort, commandTextAirportMedium, commandTextAirportLong, commandTextCityShort, commandTextCityMedium, commandTextCityLong, commandTextCountryShort, commandTextCountryMedium, commandTextCountryLong, commandTextPropertyShort, commandTextPropertyMedium, commandTextPropertyLong, commandTextWeatherShort, commandTextWeatherMedium, commandTextWeatherLong, commandTextCurrencyShort, commandTextCurrencyMedium, commandTextCurrencyLong, commandTextTimestampShort, commandTextTimestampMedium, commandTextTimestampLong, commandTextNameShort, commandTextNameMedium, commandTextNameLong, commandImagePropertyHero, commandImagePropertyRoom, commandImagePropertyFacilities */
+/*! exports provided: onStartup, onShutdown, onSupplyHotelName, onSupplyAddress, onSupplyCountry, onSupplyAirport, onSupplyCity, onSupplyWeather, onSupplyName, onSupplyTimestamp, onSupplyHeroImage, onSupplyRoomImage, onSupplyFacilityImage, openPanel, onSelectionChange, commandTextAddressShort, commandTextAddressMedium, commandTextAddressLong, commandTextAirportShort, commandTextAirportMedium, commandTextAirportLong, commandTextCityShort, commandTextCityMedium, commandTextCityLong, commandTextCountryShort, commandTextCountryMedium, commandTextCountryLong, commandTextPropertyShort, commandTextPropertyMedium, commandTextPropertyLong, commandTextWeatherShort, commandTextWeatherMedium, commandTextWeatherLong, commandTextCurrencyShort, commandTextCurrencyMedium, commandTextCurrencyLong, commandTextTimestampShort, commandTextTimestampMedium, commandTextTimestampLong, commandTextNameShort, commandTextNameMedium, commandTextNameLong, commandImagePropertyHero, commandImagePropertyRoom, commandImagePropertyFacilities */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1635,6 +1635,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHotelName", function() { return onSupplyHotelName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyAddress", function() { return onSupplyAddress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyCountry", function() { return onSupplyCountry; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyAirport", function() { return onSupplyAirport; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyCity", function() { return onSupplyCity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyWeather", function() { return onSupplyWeather; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyName", function() { return onSupplyName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyTimestamp", function() { return onSupplyTimestamp; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHeroImage", function() { return onSupplyHeroImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyRoomImage", function() { return onSupplyRoomImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyFacilityImage", function() { return onSupplyFacilityImage; });
@@ -1727,9 +1732,17 @@ var FOLDER = path.join(os.tmpdir(), IDENTITY); //===============================
 
 function onStartup() {
   // DataSupplier.registerDataSupplier('public.image', 'Hotel Property Images', 'SupplyPropertyImage');
+  // Text
   DataSupplier.registerDataSupplier('public.text', 'Hotel Names', 'SupplyHotelName');
   DataSupplier.registerDataSupplier('public.text', 'Address', 'SupplyAddress');
   DataSupplier.registerDataSupplier('public.text', 'Countries', 'SupplyCountry');
+  DataSupplier.registerDataSupplier('public.text', 'Airport', 'SupplyAirport');
+  DataSupplier.registerDataSupplier('public.text', 'Cities', 'SupplyCity');
+  DataSupplier.registerDataSupplier('public.text', 'Weather', 'SupplyWeather');
+  DataSupplier.registerDataSupplier('public.text', 'Timestamp', 'SupplyTimestamp');
+  DataSupplier.registerDataSupplier('public.text', 'Person names', 'SupplyName'); // DataSupplier.registerDataSupplier('public.text', 'Currency', 'SupplyCurrency')
+  // Image
+
   DataSupplier.registerDataSupplier('public.image', 'Hotel Front Images', 'SupplyHeroImage');
   DataSupplier.registerDataSupplier('public.image', 'Hotel Room Images', 'SupplyRoomImage');
   DataSupplier.registerDataSupplier('public.image', 'Hotel Facility Images', 'SupplyFacilityImage'); // DataSupplier.resisterDataSupplier('publuc.image', 'Hotel Room Imaage')
@@ -1761,6 +1774,31 @@ function onSupplyCountry(context) {
   var items = util.toArray(context.data.items).map(sketch.fromNative);
   getAndSupplyDataForItems(dataKey, items, "country");
 }
+function onSupplyAirport(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "airports");
+}
+function onSupplyCity(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "cities");
+}
+function onSupplyWeather(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "weather");
+}
+function onSupplyName(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "names");
+}
+function onSupplyTimestamp(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "timestamp");
+}
 function onSupplyHeroImage(context) {
   var dataKey = context.data.key;
   var items = util.toArray(context.data.items).map(sketch.fromNative);
@@ -1778,15 +1816,14 @@ function onSupplyFacilityImage(context) {
 }
 
 function getAndSupplyDataForItems(dataKey, items, dataAddress) {
-  UI.message(Messaging.downloading);
+  // UI.message(Messaging.downloading)
   fetchData(function (data) {
     items.forEach(function (_, index) {
       var targetData = mergeArrays([data["data"][dataAddress]["long"], data["data"][dataAddress]["medium"], data["data"][dataAddress]["short"]]); // let targetDataIndex = Math.floor(Math.random() * targetData.length)
 
       var targetDataIndex = getRandom(0, targetData.length - 1);
       var selected = targetData[targetDataIndex];
-      DataSupplier.supplyDataAtIndex(dataKey, selected, index);
-      UI.message(Messaging.complete);
+      DataSupplier.supplyDataAtIndex(dataKey, selected, index); // UI.message(Messaging.complete)
     });
   });
 }
@@ -2807,6 +2844,11 @@ that['onShutdown'] = __skpm_run.bind(this, 'onShutdown');
 that['onSupplyHotelName'] = __skpm_run.bind(this, 'onSupplyHotelName');
 that['onSupplyAddress'] = __skpm_run.bind(this, 'onSupplyAddress');
 that['onSupplyCountry'] = __skpm_run.bind(this, 'onSupplyCountry');
+that['onSupplyAirport'] = __skpm_run.bind(this, 'onSupplyAirport');
+that['onSupplyCity'] = __skpm_run.bind(this, 'onSupplyCity');
+that['onSupplyWeather'] = __skpm_run.bind(this, 'onSupplyWeather');
+that['onSupplyTimestamp'] = __skpm_run.bind(this, 'onSupplyTimestamp');
+that['onSupplyName'] = __skpm_run.bind(this, 'onSupplyName');
 that['onSupplyHeroImage'] = __skpm_run.bind(this, 'onSupplyHeroImage');
 that['onSupplyRoomImage'] = __skpm_run.bind(this, 'onSupplyRoomImage');
 that['onSupplyFacilityImage'] = __skpm_run.bind(this, 'onSupplyFacilityImage');
