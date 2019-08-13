@@ -1,13 +1,13 @@
 {
-  "name": "agoda-toolkit-2",
-  "version": "2.2.3",
+  "name": "agoda-design-toolkit-2",
+  "version": "2.2.2",
   "engines": {
     "sketch": ">=3.0"
   },
   "skpm": {
-    "name": "Agoda Toolkit",
+    "name": "Agoda Design Toolkit",
     "manifest": "src/manifest.json",
-    "main": "Agoda-Toolkit.sketchplugin",
+    "main": "Agoda-Design-Toolkit.sketchplugin",
     "assets": [
       "assets/**/*"
     ]

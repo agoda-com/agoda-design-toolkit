@@ -4,91 +4,10 @@ document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
 });
 
-function addPopup(e){
-    var action = $(e).attr('data-action')
-    var newPopup = $(popupTemplate).appendTo('body')
-    newPopup.attr('parent-btn', action)
-    var child = newPopup.children('.content')
-    var options = []
-    switch (action) {
-        case "address":
-            options = ["short", "medium", "long"]
-            break;
-
-        case "currency":
-            options = ["short", "medium", "long"]
-            break;
-
-        case "weather":
-            options = ["short", "medium", "long"]
-            break;
-
-        case "phone":
-            options = ["GB", "US"]
-            break;
-
-        case "dates":
-            options = ["short"]
-            break;
-
-        case "images":
-            options = ["property", "facilities", "room"]
-            break;
-
-        case "translate":
-            break;
-    
-        default:
-            options = ["short", "medium", "long"]
-            break;
-    }
-
-    for(var i = 0; i < options.length; i++){
-        var subAction = options[i]
-        child.append('<button class="btn a-2 sender" data-action="'+action+'" sub-action="'+subAction+'">'+subAction+'</button>')
-    }
-
-    
-}
-
 function toTitleCase(str) {
     return str.replace(/(?:^|\s)\w/g, function(match) {
         return match.toUpperCase();
     });
-}
-
-function openPopup(e) {
-    // console.log(e.target.offsetTop)
-    // console.log(e.target.offsetLeft)
-
-    var eTop = e.target.offsetTop
-    var eLeft = e.target.offsetLeft
-    var eHeight = e.target.clientHeight
-    var eWidth = e.target.clientWidth
-
-    var newXpostion = eTop+eHeight+6
-    var arrowPosition = eLeft+(eWidth/2)-2
-
-    var action = e.target.getAttribute("data-action")
-    var popup = $('.popup[parent-btn="'+action+'"]')
-    var arrow = popup.children('.arrow')
-    if(popup.is(":visible")){
-        popup.hide() 
-    }
-    else {
-        $('.popup').hide()
-        popup.show()
-    }
-
-    popup.css({
-        "top":"0",
-        "left":"0",
-        "transform": "translate(0, "+newXpostion+"px)"
-    })
-    arrow.css({
-        "left":"0",
-        "transform":"translate("+arrowPosition+"px, -50%)  rotate(45deg)"
-    })
 }
 
 function updateWordCount(word) {
@@ -131,6 +50,17 @@ function getTinyface(handleData) {
     })
 }
 
+function mergeArrays(arrays = []){
+	let newArray = []
+	for(var i = 0; i < arrays.length; i++){
+        if(arrays[i]) {
+            newArray = newArray.concat(arrays[i])
+        }
+	}
+	// log(newArray)
+	return newArray
+}
+
 //UI
 //=====================================================
 var agodaData = null;
@@ -140,29 +70,11 @@ function getAgodaData() {
         agodaData = data
         getTinyface(function(tinyfacesData){
             agodaData.data['images']['tinyfaces'] = tinyfacesData
-            console.log(agodaData)
+            // console.log(agodaData)
         })
     })
 }
 getAgodaData()
-
-var popupTemplate =
-`
-    <div class="popup">
-        <div class="arrow"></div>
-        <div class="content">
-        </div>
-    </div>
-`
-
-$('.w-sub').each(function(){
-    addPopup(this)
-})
-
-$('.action').click(function(e){
-    e.stopPropagation()
-    openPopup(e)
-})
 
 $('.tab-action').click(function(e){
     e.stopPropagation()
@@ -193,14 +105,6 @@ $('.tab-action').click(function(e){
         $('#translationModal').hide()
         $('#crossoutModal').show()
     }
-})
-
-$(window).click(function(){
-    $('.popup').hide()
-})
-
-$('.popup').click(function(e){
-    e.stopPropagation()
 })
 
 $('.randomisation').click(function(e){
@@ -247,16 +151,28 @@ $('.sender').click(function(e){
             discount: discountInput
         }
     }
+    else if (action == "images"){
+        targetArray = agodaData.data[action][sub]
+    }
     else {
         try{
-            if(agodaData.data[action][sub]){
-                targetArray = agodaData.data[action][sub]
+            if(sub == "single"){
+                targetArray = agodaData.data[action]
+            }
+            else if(agodaData.data[action]){
+                targetArray = mergeArrays([
+                    agodaData.data[action]["short"],
+                    agodaData.data[action]["medium"],
+                    agodaData.data[action]["long"],
+                ])
             }
         }
         catch(e){
             targetArray = null
         }
     }
+
+    // console.log(targetArray)
 
     var data = {
         "action": action,
@@ -266,7 +182,7 @@ $('.sender').click(function(e){
         "date": new Date().getTime()
     }
 
-    console.log(data)
+    // console.log(data)
     // Put the JSON as a string in the hash
     window.location.hash = JSON.stringify(data);
 })  

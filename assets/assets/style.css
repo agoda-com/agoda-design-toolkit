@@ -12,7 +12,8 @@ html {
 }
 
 body {
-	width: 320px;
+	width: 410px;
+	/* width: 320px; */
 	/* height: 395px; */
 	background-color: rgb(33,33,33,1);
 	overflow: hidden;
@@ -77,7 +78,7 @@ body {
 	border-radius: 3px;
 	color: #fff;
 	margin-bottom: 5px;
-	margin-left: 2px; 
+	/* margin-left: 2px;  */
 	font-size: 12px;
 	cursor: pointer;
 	text-transform: capitalize;
@@ -124,6 +125,7 @@ body {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 12px;
 }
 
 .option-box {
@@ -153,8 +155,9 @@ body {
 	color: white;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 12px;
-	max-width: 182px;
-	min-width: 171px;
+	/* max-width: 182px; */
+	/* min-width: 171px; */
+	width: 285px;
 	/* display: inline-block; */
 	/* align-self: center; */
 }
@@ -221,9 +224,19 @@ body {
 	width: 100%;
 }
 
-#imageModal .ac-bottons {
-	min-width: 182px;
+#textModal .action, #imageModal .action{
+	float: left;
+	vertical-align: top;
+	width: 85px;
+	height: 50px;
+	/* display: inline-block; */
+	margin-right: 5px;
+
 }
+
+/* .ac-bottons {
+	width: 270px;
+} */
 
 #crossoutModal .ac-bottons {
 	max-width: 100%;
