@@ -1,6 +1,6 @@
 {
-  "name": "Agoda Toolkit",
-  "description": "Quickly generate real content for your design workflow.",
+  "name": "Agoda Design Toolkit",
+  "description": "Generate real content for your design workflow.",
   "compatibleVersion": 3,
   "bundleVersion": 1,
   "icon": "./icons/icon.png",
@@ -21,6 +21,16 @@
 				"SupplyWeather": "onSupplyWeather",
 				"SupplyTimestamp": "onSupplyTimestamp",
 				"SupplyName": "onSupplyName",
+				"SupplyAircraft": "onSupplyAircraft",
+				"SupplyAirlineName": "onSupplyAirlineName",
+				"SupplyAirportCode": "onSupplyAirportCode",
+				"SupplyDate": "onSupplyDate",
+				"SupplyEmail": "onSupplyEmail",
+				"SupplyFlightDuration": "onSupplyFlightDuration",
+				"SupplyFlightNumber": "onSupplyFlightNumber",
+				"SupplyHotelAmenity": "onSupplyHotelAmenity",
+				"SupplyHotelDescription": "onSupplyHotelDescription",
+				"SupplyHotelRoomType": "onSupplyHotelRoomType",
 				"SupplyHeroImage": "onSupplyHeroImage",
 				"SupplyRoomImage": "onSupplyRoomImage",
 				"SupplyFacilityImage": "onSupplyFacilityImage"
@@ -31,7 +41,7 @@
 		"name": "Open Panel",
 		"identifier": "open_panel",
 		"script": "./command.js",
-		"description": "Show Agoda content generator window.",
+		"description": "Show content generator window.",
 		"icon": "./icons/app_icon.png",
 		"handlers": {
 			"run": "openPanel",
@@ -253,7 +263,7 @@
 	
   ],
 	"menu": {
-		"title": "🛠 Agoda Toolkit",
+		"title": "🛠 Agoda Design Toolkit",
 		"items": [
 			"open_panel",
 			"-",

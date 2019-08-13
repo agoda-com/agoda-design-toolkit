@@ -43,11 +43,23 @@ export function onStartup() {
 	DataSupplier.registerDataSupplier('public.text', 'Hotel Names', 'SupplyHotelName')
 	DataSupplier.registerDataSupplier('public.text', 'Address', 'SupplyAddress')
 	DataSupplier.registerDataSupplier('public.text', 'Countries', 'SupplyCountry')
-	DataSupplier.registerDataSupplier('public.text', 'Airport', 'SupplyAirport')
+	DataSupplier.registerDataSupplier('public.text', 'Airport Names', 'SupplyAirport')
 	DataSupplier.registerDataSupplier('public.text', 'Cities', 'SupplyCity')
 	DataSupplier.registerDataSupplier('public.text', 'Weather', 'SupplyWeather')
 	DataSupplier.registerDataSupplier('public.text', 'Timestamp', 'SupplyTimestamp')
-	DataSupplier.registerDataSupplier('public.text', 'Person names', 'SupplyName')
+	DataSupplier.registerDataSupplier('public.text', 'Person Names', 'SupplyName')
+	
+	DataSupplier.registerDataSupplier('public.text', 'Aircraft Types', 'SupplyAircraft')
+	DataSupplier.registerDataSupplier('public.text', 'Airline Names', 'SupplyAirlineName')
+	DataSupplier.registerDataSupplier('public.text', 'Airport Code', 'SupplyAirportCode')
+	DataSupplier.registerDataSupplier('public.text', 'Dates (DDMMYYYY)', 'SupplyDate')
+	DataSupplier.registerDataSupplier('public.text', 'Email', 'SupplyEmail')
+	DataSupplier.registerDataSupplier('public.text', 'Flight Duration', 'SupplyFlightDuration')
+	DataSupplier.registerDataSupplier('public.text', 'Flight Numbers', 'SupplyFlightNumber')
+	DataSupplier.registerDataSupplier('public.text', 'Hotel Amenities', 'SupplyHotelAmenity')
+	DataSupplier.registerDataSupplier('public.text', 'Hotel Description', 'SupplyHotelDescription')
+	DataSupplier.registerDataSupplier('public.text', 'Hotel Room Types', 'SupplyHotelRoomTypes')
+	// DataSupplier.registerDataSupplier('public.text', '', 'Supply')
 	// DataSupplier.registerDataSupplier('public.text', 'Currency', 'SupplyCurrency')
 
 	// Image
@@ -111,6 +123,13 @@ export function onSupplyWeather(context) {
 	getAndSupplyDataForItems(dataKey, items, "weather")
 }
 
+export function onSupplyTimestamp(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "timestamp")
+}
+
 export function onSupplyName(context) {
 	let dataKey = context.data.key
 	let items = util.toArray(context.data.items).map(sketch.fromNative)
@@ -118,11 +137,74 @@ export function onSupplyName(context) {
 	getAndSupplyDataForItems(dataKey, items, "names")
 }
 
-export function onSupplyTimestamp(context) {
+export function onSupplyAircraft(context) {
 	let dataKey = context.data.key
 	let items = util.toArray(context.data.items).map(sketch.fromNative)
 
-	getAndSupplyDataForItems(dataKey, items, "timestamp")
+	getAndSupplyDataForItems(dataKey, items, "aircraft-type")
+}
+
+export function onSupplyAirlineName(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "airline-name")
+}
+
+export function onSupplyAirportCode(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "airport-code")
+}
+
+export function onSupplyDate(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "dates")
+}
+
+export function onSupplyEmail(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "email")
+}
+
+export function onSupplyFlightDuration(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "flight-duration")
+}
+
+export function onSupplyFlightNumber(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "flight-number")
+}
+
+export function onSupplyHotelAmenity(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "hotel-amenities")
+}
+
+export function onSupplyHotelDescription(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "hotel-description")
+}
+
+export function onSupplyHotelRoomType(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "hotel-room-name")
 }
 
 export function onSupplyHeroImage(context) {
@@ -150,11 +232,17 @@ function getAndSupplyDataForItems(dataKey, items, dataAddress){
 	// UI.message(Messaging.downloading)
 	fetchData((data) => {
 		items.forEach((_, index) => {
-			let targetData = mergeArrays([
-				data["data"][dataAddress]["long"],
-				data["data"][dataAddress]["medium"],
-				data["data"][dataAddress]["short"]
-			])
+			let targetData
+			if ("short" in data["data"][dataAddress] || "medium" in data["data"][dataAddress] || "long" in data["data"][dataAddress]){
+				targetData = mergeArrays([
+					data["data"][dataAddress]["long"],
+					data["data"][dataAddress]["medium"],
+					data["data"][dataAddress]["short"]
+				])
+			}
+			else {
+				targetData = data["data"][dataAddress]
+			}
 			// let targetDataIndex = Math.floor(Math.random() * targetData.length)
 			let targetDataIndex = getRandom(0, targetData.length-1)
 			let selected = targetData[targetDataIndex]

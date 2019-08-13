@@ -1625,7 +1625,7 @@ module.exports = fetch
 /*!************************!*\
   !*** ./src/command.js ***!
   \************************/
-/*! exports provided: onStartup, onShutdown, onSupplyHotelName, onSupplyAddress, onSupplyCountry, onSupplyAirport, onSupplyCity, onSupplyWeather, onSupplyName, onSupplyTimestamp, onSupplyHeroImage, onSupplyRoomImage, onSupplyFacilityImage, openPanel, onSelectionChange, commandTextAddressShort, commandTextAddressMedium, commandTextAddressLong, commandTextAirportShort, commandTextAirportMedium, commandTextAirportLong, commandTextCityShort, commandTextCityMedium, commandTextCityLong, commandTextCountryShort, commandTextCountryMedium, commandTextCountryLong, commandTextPropertyShort, commandTextPropertyMedium, commandTextPropertyLong, commandTextWeatherShort, commandTextWeatherMedium, commandTextWeatherLong, commandTextCurrencyShort, commandTextCurrencyMedium, commandTextCurrencyLong, commandTextTimestampShort, commandTextTimestampMedium, commandTextTimestampLong, commandTextNameShort, commandTextNameMedium, commandTextNameLong, commandImagePropertyHero, commandImagePropertyRoom, commandImagePropertyFacilities */
+/*! exports provided: onStartup, onShutdown, onSupplyHotelName, onSupplyAddress, onSupplyCountry, onSupplyAirport, onSupplyCity, onSupplyWeather, onSupplyTimestamp, onSupplyName, onSupplyAircraft, onSupplyAirlineName, onSupplyAirportCode, onSupplyDate, onSupplyEmail, onSupplyFlightDuration, onSupplyFlightNumber, onSupplyHotelAmenity, onSupplyHotelDescription, onSupplyHotelRoomType, onSupplyHeroImage, onSupplyRoomImage, onSupplyFacilityImage, openPanel, onSelectionChange, commandTextAddressShort, commandTextAddressMedium, commandTextAddressLong, commandTextAirportShort, commandTextAirportMedium, commandTextAirportLong, commandTextCityShort, commandTextCityMedium, commandTextCityLong, commandTextCountryShort, commandTextCountryMedium, commandTextCountryLong, commandTextPropertyShort, commandTextPropertyMedium, commandTextPropertyLong, commandTextWeatherShort, commandTextWeatherMedium, commandTextWeatherLong, commandTextCurrencyShort, commandTextCurrencyMedium, commandTextCurrencyLong, commandTextTimestampShort, commandTextTimestampMedium, commandTextTimestampLong, commandTextNameShort, commandTextNameMedium, commandTextNameLong, commandImagePropertyHero, commandImagePropertyRoom, commandImagePropertyFacilities */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1638,8 +1638,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyAirport", function() { return onSupplyAirport; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyCity", function() { return onSupplyCity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyWeather", function() { return onSupplyWeather; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyName", function() { return onSupplyName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyTimestamp", function() { return onSupplyTimestamp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyName", function() { return onSupplyName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyAircraft", function() { return onSupplyAircraft; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyAirlineName", function() { return onSupplyAirlineName; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyAirportCode", function() { return onSupplyAirportCode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyDate", function() { return onSupplyDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyEmail", function() { return onSupplyEmail; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyFlightDuration", function() { return onSupplyFlightDuration; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyFlightNumber", function() { return onSupplyFlightNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHotelAmenity", function() { return onSupplyHotelAmenity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHotelDescription", function() { return onSupplyHotelDescription; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHotelRoomType", function() { return onSupplyHotelRoomType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHeroImage", function() { return onSupplyHeroImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyRoomImage", function() { return onSupplyRoomImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyFacilityImage", function() { return onSupplyFacilityImage; });
@@ -1736,11 +1746,22 @@ function onStartup() {
   DataSupplier.registerDataSupplier('public.text', 'Hotel Names', 'SupplyHotelName');
   DataSupplier.registerDataSupplier('public.text', 'Address', 'SupplyAddress');
   DataSupplier.registerDataSupplier('public.text', 'Countries', 'SupplyCountry');
-  DataSupplier.registerDataSupplier('public.text', 'Airport', 'SupplyAirport');
+  DataSupplier.registerDataSupplier('public.text', 'Airport Names', 'SupplyAirport');
   DataSupplier.registerDataSupplier('public.text', 'Cities', 'SupplyCity');
   DataSupplier.registerDataSupplier('public.text', 'Weather', 'SupplyWeather');
   DataSupplier.registerDataSupplier('public.text', 'Timestamp', 'SupplyTimestamp');
-  DataSupplier.registerDataSupplier('public.text', 'Person names', 'SupplyName'); // DataSupplier.registerDataSupplier('public.text', 'Currency', 'SupplyCurrency')
+  DataSupplier.registerDataSupplier('public.text', 'Person Names', 'SupplyName');
+  DataSupplier.registerDataSupplier('public.text', 'Aircraft Types', 'SupplyAircraft');
+  DataSupplier.registerDataSupplier('public.text', 'Airline Names', 'SupplyAirlineName');
+  DataSupplier.registerDataSupplier('public.text', 'Airport Code', 'SupplyAirportCode');
+  DataSupplier.registerDataSupplier('public.text', 'Dates (DDMMYYYY)', 'SupplyDate');
+  DataSupplier.registerDataSupplier('public.text', 'Email', 'SupplyEmail');
+  DataSupplier.registerDataSupplier('public.text', 'Flight Duration', 'SupplyFlightDuration');
+  DataSupplier.registerDataSupplier('public.text', 'Flight Numbers', 'SupplyFlightNumber');
+  DataSupplier.registerDataSupplier('public.text', 'Hotel Amenities', 'SupplyHotelAmenity');
+  DataSupplier.registerDataSupplier('public.text', 'Hotel Description', 'SupplyHotelDescription');
+  DataSupplier.registerDataSupplier('public.text', 'Hotel Room Types', 'SupplyHotelRoomTypes'); // DataSupplier.registerDataSupplier('public.text', '', 'Supply')
+  // DataSupplier.registerDataSupplier('public.text', 'Currency', 'SupplyCurrency')
   // Image
 
   DataSupplier.registerDataSupplier('public.image', 'Hotel Front Images', 'SupplyHeroImage');
@@ -1789,15 +1810,65 @@ function onSupplyWeather(context) {
   var items = util.toArray(context.data.items).map(sketch.fromNative);
   getAndSupplyDataForItems(dataKey, items, "weather");
 }
+function onSupplyTimestamp(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "timestamp");
+}
 function onSupplyName(context) {
   var dataKey = context.data.key;
   var items = util.toArray(context.data.items).map(sketch.fromNative);
   getAndSupplyDataForItems(dataKey, items, "names");
 }
-function onSupplyTimestamp(context) {
+function onSupplyAircraft(context) {
   var dataKey = context.data.key;
   var items = util.toArray(context.data.items).map(sketch.fromNative);
-  getAndSupplyDataForItems(dataKey, items, "timestamp");
+  getAndSupplyDataForItems(dataKey, items, "aircraft-type");
+}
+function onSupplyAirlineName(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "airline-name");
+}
+function onSupplyAirportCode(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "airport-code");
+}
+function onSupplyDate(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "dates");
+}
+function onSupplyEmail(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "email");
+}
+function onSupplyFlightDuration(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "flight-duration");
+}
+function onSupplyFlightNumber(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "flight-number");
+}
+function onSupplyHotelAmenity(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "hotel-amenities");
+}
+function onSupplyHotelDescription(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "hotel-description");
+}
+function onSupplyHotelRoomType(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "hotel-room-name");
 }
 function onSupplyHeroImage(context) {
   var dataKey = context.data.key;
@@ -1819,7 +1890,14 @@ function getAndSupplyDataForItems(dataKey, items, dataAddress) {
   // UI.message(Messaging.downloading)
   fetchData(function (data) {
     items.forEach(function (_, index) {
-      var targetData = mergeArrays([data["data"][dataAddress]["long"], data["data"][dataAddress]["medium"], data["data"][dataAddress]["short"]]); // let targetDataIndex = Math.floor(Math.random() * targetData.length)
+      var targetData;
+
+      if ("short" in data["data"][dataAddress] || "medium" in data["data"][dataAddress] || "long" in data["data"][dataAddress]) {
+        targetData = mergeArrays([data["data"][dataAddress]["long"], data["data"][dataAddress]["medium"], data["data"][dataAddress]["short"]]);
+      } else {
+        targetData = data["data"][dataAddress];
+      } // let targetDataIndex = Math.floor(Math.random() * targetData.length)
+
 
       var targetDataIndex = getRandom(0, targetData.length - 1);
       var selected = targetData[targetDataIndex];
@@ -2849,6 +2927,16 @@ that['onSupplyCity'] = __skpm_run.bind(this, 'onSupplyCity');
 that['onSupplyWeather'] = __skpm_run.bind(this, 'onSupplyWeather');
 that['onSupplyTimestamp'] = __skpm_run.bind(this, 'onSupplyTimestamp');
 that['onSupplyName'] = __skpm_run.bind(this, 'onSupplyName');
+that['onSupplyAircraft'] = __skpm_run.bind(this, 'onSupplyAircraft');
+that['onSupplyAirlineName'] = __skpm_run.bind(this, 'onSupplyAirlineName');
+that['onSupplyAirportCode'] = __skpm_run.bind(this, 'onSupplyAirportCode');
+that['onSupplyDate'] = __skpm_run.bind(this, 'onSupplyDate');
+that['onSupplyEmail'] = __skpm_run.bind(this, 'onSupplyEmail');
+that['onSupplyFlightDuration'] = __skpm_run.bind(this, 'onSupplyFlightDuration');
+that['onSupplyFlightNumber'] = __skpm_run.bind(this, 'onSupplyFlightNumber');
+that['onSupplyHotelAmenity'] = __skpm_run.bind(this, 'onSupplyHotelAmenity');
+that['onSupplyHotelDescription'] = __skpm_run.bind(this, 'onSupplyHotelDescription');
+that['onSupplyHotelRoomType'] = __skpm_run.bind(this, 'onSupplyHotelRoomType');
 that['onSupplyHeroImage'] = __skpm_run.bind(this, 'onSupplyHeroImage');
 that['onSupplyRoomImage'] = __skpm_run.bind(this, 'onSupplyRoomImage');
 that['onSupplyFacilityImage'] = __skpm_run.bind(this, 'onSupplyFacilityImage');
