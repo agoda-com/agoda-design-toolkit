@@ -348,7 +348,7 @@
       }
     ]
   },
-  "version": "2.2.2",
+  "version": "2.2.3",
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://raw.githubusercontent.com/agoda-com/agoda-design-toolkit/master/.appcast.xml",
   "author": "Agoda"
