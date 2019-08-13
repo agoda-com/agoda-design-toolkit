@@ -324,7 +324,8 @@ function saveTempFileFormImageData(imageData){
 // Open Panel Function ==========================================================================//
 //===============================================================================================//
 export function openPanel(context) {
-	var panelWidth = 340;
+	// var panelWidth = 340;
+	var panelWidth = 430
     var panelHeight = 590;
 
 	// Create an NSThread dictionary with a specific identifier
@@ -365,7 +366,7 @@ export function openPanel(context) {
 
 	// Create the WebView with a request to a Web page in Contents/Resources/
 	var webView = WebView.alloc().initWithFrame(NSMakeRect(0, 0, panelWidth, panelHeight - 44));
-	var request = NSURLRequest.requestWithURL(context.plugin.urlForResourceNamed("webView-hdifiuqhef.html"));
+	var request = NSURLRequest.requestWithURL(context.plugin.urlForResourceNamed("webView-300-test1.html"));
 	webView.mainFrame().loadRequest(request);
 	// Prevent it from drawing a white background
 	webView.setDrawsBackground(false); 
@@ -659,6 +660,7 @@ function fetchImage(url,ingnoreCache) {
 }
 
 function actionControl(context, action) {
+	log(action)
 	switch (action.action) {
 		case "currency":
 			textCurrency(context, action)
@@ -740,6 +742,7 @@ function textFromData(context, action){
 	var targetArray = action.data.slice(0)
 	var randomisation = action.randomisation
 	var ranNum = getRandom(0, targetArray.length-1)
+	// log(targetArray)
 	if(layerData){
 		for(var i = 0; i < layerData.layers.length; i++){
 			var layer = layerData.layers[i]

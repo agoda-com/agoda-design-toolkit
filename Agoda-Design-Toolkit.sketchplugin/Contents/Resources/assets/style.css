@@ -153,8 +153,9 @@ body {
 	color: white;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 12px;
-	max-width: 182px;
-	min-width: 171px;
+	/* max-width: 182px; */
+	/* min-width: 171px; */
+	width: 188px;
 	/* display: inline-block; */
 	/* align-self: center; */
 }
