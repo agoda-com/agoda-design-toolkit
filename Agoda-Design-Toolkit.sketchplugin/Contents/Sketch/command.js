@@ -1625,7 +1625,7 @@ module.exports = fetch
 /*!************************!*\
   !*** ./src/command.js ***!
   \************************/
-/*! exports provided: onStartup, onShutdown, onSupplyHotelName, onSupplyAddress, onSupplyCountry, onSupplyAirport, onSupplyCity, onSupplyWeather, onSupplyTimestamp, onSupplyName, onSupplyAircraft, onSupplyAirlineName, onSupplyAirportCode, onSupplyDate, onSupplyEmail, onSupplyFlightDuration, onSupplyFlightNumber, onSupplyHotelAmenity, onSupplyHotelDescription, onSupplyHotelRoomType, onSupplyHeroImage, onSupplyRoomImage, onSupplyFacilityImage, openPanel, onSelectionChange, commandTextAddressShort, commandTextAddressMedium, commandTextAddressLong, commandTextAirportShort, commandTextAirportMedium, commandTextAirportLong, commandTextCityShort, commandTextCityMedium, commandTextCityLong, commandTextCountryShort, commandTextCountryMedium, commandTextCountryLong, commandTextPropertyShort, commandTextPropertyMedium, commandTextPropertyLong, commandTextWeatherShort, commandTextWeatherMedium, commandTextWeatherLong, commandTextCurrencyShort, commandTextCurrencyMedium, commandTextCurrencyLong, commandTextTimestampShort, commandTextTimestampMedium, commandTextTimestampLong, commandTextNameShort, commandTextNameMedium, commandTextNameLong, commandImagePropertyHero, commandImagePropertyRoom, commandImagePropertyFacilities */
+/*! exports provided: onStartup, onShutdown, onSupplyHotelName, onSupplyAddress, onSupplyCountry, onSupplyAirport, onSupplyCity, onSupplyWeather, onSupplyTimestamp, onSupplyName, onSupplyAircraft, onSupplyAirlineName, onSupplyAirportCode, onSupplyDate, onSupplyEmail, onSupplyFlightDuration, onSupplyFlightNumber, onSupplyHotelAmenity, onSupplyHotelDescription, onSupplyHotelRoomType, onSupplyNameAndInitial, onSupplyUsername, onSupply24HourTime, onSupplyHeroImage, onSupplyRoomImage, onSupplyFacilityImage, openPanel, onSelectionChange, commandTextAddressShort, commandTextAddressMedium, commandTextAddressLong, commandTextAirportShort, commandTextAirportMedium, commandTextAirportLong, commandTextCityShort, commandTextCityMedium, commandTextCityLong, commandTextCountryShort, commandTextCountryMedium, commandTextCountryLong, commandTextPropertyShort, commandTextPropertyMedium, commandTextPropertyLong, commandTextWeatherShort, commandTextWeatherMedium, commandTextWeatherLong, commandTextCurrencyShort, commandTextCurrencyMedium, commandTextCurrencyLong, commandTextTimestampShort, commandTextTimestampMedium, commandTextTimestampLong, commandTextNameShort, commandTextNameMedium, commandTextNameLong, commandImagePropertyHero, commandImagePropertyRoom, commandImagePropertyFacilities */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1650,6 +1650,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHotelAmenity", function() { return onSupplyHotelAmenity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHotelDescription", function() { return onSupplyHotelDescription; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHotelRoomType", function() { return onSupplyHotelRoomType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyNameAndInitial", function() { return onSupplyNameAndInitial; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyUsername", function() { return onSupplyUsername; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupply24HourTime", function() { return onSupply24HourTime; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyHeroImage", function() { return onSupplyHeroImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyRoomImage", function() { return onSupplyRoomImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSupplyFacilityImage", function() { return onSupplyFacilityImage; });
@@ -1729,7 +1732,7 @@ var Messaging = {
   complete: "✅ Complete!"
 };
 var Alert = {
-  title: "Agoda Toolkit",
+  title: "🛠 Agoda Design Toolkit",
   imageUrlBroken: "Some image urls cannot be reached!",
   selectText: "Select any text layers.",
   selectLayerWithFill: "Select any layers with at least one fill style."
@@ -1760,8 +1763,10 @@ function onStartup() {
   DataSupplier.registerDataSupplier('public.text', 'Flight Numbers', 'SupplyFlightNumber');
   DataSupplier.registerDataSupplier('public.text', 'Hotel Amenities', 'SupplyHotelAmenity');
   DataSupplier.registerDataSupplier('public.text', 'Hotel Description', 'SupplyHotelDescription');
-  DataSupplier.registerDataSupplier('public.text', 'Hotel Room Types', 'SupplyHotelRoomTypes'); // DataSupplier.registerDataSupplier('public.text', '', 'Supply')
-  // DataSupplier.registerDataSupplier('public.text', 'Currency', 'SupplyCurrency')
+  DataSupplier.registerDataSupplier('public.text', 'Hotel Room Types', 'SupplyHotelRoomType');
+  DataSupplier.registerDataSupplier('public.text', 'Names & Initials', 'SupplyNameAndInitial');
+  DataSupplier.registerDataSupplier('public.text', 'Usernames', 'SupplyUsername');
+  DataSupplier.registerDataSupplier('public.text', '24-Hour Time', 'Supply24HourTime'); // DataSupplier.registerDataSupplier('public.text', '', 'Supply')
   // Image
 
   DataSupplier.registerDataSupplier('public.image', 'Hotel Front Images', 'SupplyHeroImage');
@@ -1869,6 +1874,21 @@ function onSupplyHotelRoomType(context) {
   var dataKey = context.data.key;
   var items = util.toArray(context.data.items).map(sketch.fromNative);
   getAndSupplyDataForItems(dataKey, items, "hotel-room-name");
+}
+function onSupplyNameAndInitial(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "names-initials");
+}
+function onSupplyUsername(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "username");
+}
+function onSupply24HourTime(context) {
+  var dataKey = context.data.key;
+  var items = util.toArray(context.data.items).map(sketch.fromNative);
+  getAndSupplyDataForItems(dataKey, items, "24hour-format");
 }
 function onSupplyHeroImage(context) {
   var dataKey = context.data.key;
@@ -1978,7 +1998,8 @@ function saveTempFileFormImageData(imageData) {
 
 
 function openPanel(context) {
-  var panelWidth = 340;
+  // var panelWidth = 340;
+  var panelWidth = 430;
   var panelHeight = 590; // Create an NSThread dictionary with a specific identifier
 
   var threadDictionary = NSThread.mainThread().threadDictionary();
@@ -2009,7 +2030,7 @@ function openPanel(context) {
   // Create the WebView with a request to a Web page in Contents/Resources/
 
   var webView = WebView.alloc().initWithFrame(NSMakeRect(0, 0, panelWidth, panelHeight - 44));
-  var request = NSURLRequest.requestWithURL(context.plugin.urlForResourceNamed("webView-300-test1.html"));
+  var request = NSURLRequest.requestWithURL(context.plugin.urlForResourceNamed("webView-230.html"));
   webView.mainFrame().loadRequest(request); // Prevent it from drawing a white background
 
   webView.setDrawsBackground(false); // Access the Web page's JavaScript environment
@@ -2939,6 +2960,9 @@ that['onSupplyFlightNumber'] = __skpm_run.bind(this, 'onSupplyFlightNumber');
 that['onSupplyHotelAmenity'] = __skpm_run.bind(this, 'onSupplyHotelAmenity');
 that['onSupplyHotelDescription'] = __skpm_run.bind(this, 'onSupplyHotelDescription');
 that['onSupplyHotelRoomType'] = __skpm_run.bind(this, 'onSupplyHotelRoomType');
+that['onSupplyNameAndInitial'] = __skpm_run.bind(this, 'onSupplyNameAndInitial');
+that['onSupplyUsername'] = __skpm_run.bind(this, 'onSupplyUsername');
+that['onSupply24HourTime'] = __skpm_run.bind(this, 'onSupply24HourTime');
 that['onSupplyHeroImage'] = __skpm_run.bind(this, 'onSupplyHeroImage');
 that['onSupplyRoomImage'] = __skpm_run.bind(this, 'onSupplyRoomImage');
 that['onSupplyFacilityImage'] = __skpm_run.bind(this, 'onSupplyFacilityImage');

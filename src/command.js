@@ -22,7 +22,7 @@ const Messaging = {
 }
 
 const Alert = {
-	title: "Agoda Toolkit",
+	title: "🛠 Agoda Design Toolkit",
 	imageUrlBroken: "Some image urls cannot be reached!",
 	selectText: "Select any text layers.",
 	selectLayerWithFill: "Select any layers with at least one fill style."
@@ -58,9 +58,11 @@ export function onStartup() {
 	DataSupplier.registerDataSupplier('public.text', 'Flight Numbers', 'SupplyFlightNumber')
 	DataSupplier.registerDataSupplier('public.text', 'Hotel Amenities', 'SupplyHotelAmenity')
 	DataSupplier.registerDataSupplier('public.text', 'Hotel Description', 'SupplyHotelDescription')
-	DataSupplier.registerDataSupplier('public.text', 'Hotel Room Types', 'SupplyHotelRoomTypes')
+	DataSupplier.registerDataSupplier('public.text', 'Hotel Room Types', 'SupplyHotelRoomType')
+	DataSupplier.registerDataSupplier('public.text', 'Names & Initials', 'SupplyNameAndInitial')
+	DataSupplier.registerDataSupplier('public.text', 'Usernames', 'SupplyUsername')
+	DataSupplier.registerDataSupplier('public.text', '24-Hour Time', 'Supply24HourTime')
 	// DataSupplier.registerDataSupplier('public.text', '', 'Supply')
-	// DataSupplier.registerDataSupplier('public.text', 'Currency', 'SupplyCurrency')
 
 	// Image
 	DataSupplier.registerDataSupplier('public.image', 'Hotel Front Images', 'SupplyHeroImage')
@@ -205,6 +207,27 @@ export function onSupplyHotelRoomType(context) {
 	let items = util.toArray(context.data.items).map(sketch.fromNative)
 
 	getAndSupplyDataForItems(dataKey, items, "hotel-room-name")
+}
+
+export function onSupplyNameAndInitial(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "names-initials")
+}
+
+export function onSupplyUsername(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "username")
+}
+
+export function onSupply24HourTime(context) {
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
+	getAndSupplyDataForItems(dataKey, items, "24hour-format")
 }
 
 export function onSupplyHeroImage(context) {
@@ -366,7 +389,7 @@ export function openPanel(context) {
 
 	// Create the WebView with a request to a Web page in Contents/Resources/
 	var webView = WebView.alloc().initWithFrame(NSMakeRect(0, 0, panelWidth, panelHeight - 44));
-	var request = NSURLRequest.requestWithURL(context.plugin.urlForResourceNamed("webView-300-test1.html"));
+	var request = NSURLRequest.requestWithURL(context.plugin.urlForResourceNamed("webView-230.html"));
 	webView.mainFrame().loadRequest(request);
 	// Prevent it from drawing a white background
 	webView.setDrawsBackground(false); 

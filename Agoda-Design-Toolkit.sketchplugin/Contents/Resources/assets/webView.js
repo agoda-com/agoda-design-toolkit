@@ -70,7 +70,7 @@ function getAgodaData() {
         agodaData = data
         getTinyface(function(tinyfacesData){
             agodaData.data['images']['tinyfaces'] = tinyfacesData
-            console.log(agodaData)
+            // console.log(agodaData)
         })
     })
 }
@@ -172,7 +172,7 @@ $('.sender').click(function(e){
         }
     }
 
-    console.log(targetArray)
+    // console.log(targetArray)
 
     var data = {
         "action": action,

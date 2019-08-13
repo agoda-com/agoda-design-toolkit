@@ -31,6 +31,9 @@
           "SupplyHotelAmenity": "onSupplyHotelAmenity",
           "SupplyHotelDescription": "onSupplyHotelDescription",
           "SupplyHotelRoomType": "onSupplyHotelRoomType",
+          "SupplyNameAndInitial": "onSupplyNameAndInitial",
+          "SupplyUsername": "onSupplyUsername",
+          "Supply24HourTime": "onSupply24HourTime",
           "SupplyHeroImage": "onSupplyHeroImage",
           "SupplyRoomImage": "onSupplyRoomImage",
           "SupplyFacilityImage": "onSupplyFacilityImage"
