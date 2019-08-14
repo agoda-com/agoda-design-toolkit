@@ -36,7 +36,9 @@
 				"Supply24HourTime": "onSupply24HourTime",
 				"SupplyHeroImage": "onSupplyHeroImage",
 				"SupplyRoomImage": "onSupplyRoomImage",
-				"SupplyFacilityImage": "onSupplyFacilityImage"
+				"SupplyFacilityImage": "onSupplyFacilityImage",
+				"SupplyRandomImage": "onSupplyRandomImage",
+				"SupplyRandomText": "onSupplyRandomText"
 			}
 		}
 	},

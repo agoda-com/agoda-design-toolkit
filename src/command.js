@@ -8,6 +8,7 @@ const os = require('os');
 const path = require('path');
 const util = require('util');
 const fs = require('@skpm/fs');
+const System = require("./modules/system");
 
 const FillType = { Solid: 0, Gradient: 1, Pattern: 4, Noise: 5 }
 const PatternFillType = { Tile: 0, Fill: 1, Stretch: 2, Fit: 3}
@@ -48,7 +49,6 @@ export function onStartup() {
 	DataSupplier.registerDataSupplier('public.text', 'Weather', 'SupplyWeather')
 	DataSupplier.registerDataSupplier('public.text', 'Timestamp', 'SupplyTimestamp')
 	DataSupplier.registerDataSupplier('public.text', 'Person Names', 'SupplyName')
-	
 	DataSupplier.registerDataSupplier('public.text', 'Aircraft Types', 'SupplyAircraft')
 	DataSupplier.registerDataSupplier('public.text', 'Airline Names', 'SupplyAirlineName')
 	DataSupplier.registerDataSupplier('public.text', 'Airport Code', 'SupplyAirportCode')
@@ -62,13 +62,12 @@ export function onStartup() {
 	DataSupplier.registerDataSupplier('public.text', 'Names & Initials', 'SupplyNameAndInitial')
 	DataSupplier.registerDataSupplier('public.text', 'Usernames', 'SupplyUsername')
 	DataSupplier.registerDataSupplier('public.text', '24-Hour Time', 'Supply24HourTime')
-	// DataSupplier.registerDataSupplier('public.text', '', 'Supply')
-
+	DataSupplier.registerDataSupplier('public.text', 'Random Text From File', 'SupplyRandomText')
 	// Image
 	DataSupplier.registerDataSupplier('public.image', 'Hotel Front Images', 'SupplyHeroImage')
 	DataSupplier.registerDataSupplier('public.image', 'Hotel Room Images', 'SupplyRoomImage')
 	DataSupplier.registerDataSupplier('public.image', 'Hotel Facility Images', 'SupplyFacilityImage')
-	// DataSupplier.resisterDataSupplier('publuc.image', 'Hotel Room Imaage')
+	DataSupplier.registerDataSupplier('public.image', 'Random Image From File', 'SupplyRandomImage')
 }
 
 export function onShutdown() {
@@ -249,6 +248,29 @@ export function onSupplyFacilityImage(context){
 	let items = util.toArray(context.data.items).map(sketch.fromNative)
 
 	getAndSupplyImageForItems(dataKey, items, "facilities")
+}
+
+export function onSupplyRandomText(context) {
+	var texts = System.textsFromChooseFile();
+	if (texts.length > 0) {
+		supplyRandomData(context, texts);
+		UI.message('📄 Success')
+	}
+}
+
+export function onSupplyRandomImage(context) {
+	var images = System.imagesFromChooseFolder();
+	if (images.length > 0) {
+		supplyRandomData(context, images);
+	}
+	UI.message('📷 Success')
+  }
+
+function supplyRandomData(context, data) {
+	var dataKey = context.data.key;
+	for (var i = 0; i < context.data.requestedCount; i++) {
+		DataSupplier.supplyDataAtIndex(dataKey, data[Math.floor(Math.random() * data.length)], i);
+	}
 }
 
 function getAndSupplyDataForItems(dataKey, items, dataAddress){
