@@ -83,171 +83,99 @@ export function onShutdown() {
 }
 
 export function onSupplyHotelName(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "property-name")
+	getAndSupplyDataForItems(context, "property-name")
 }
 
 export function onSupplyAddress(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "address")
+	getAndSupplyDataForItems(context, "address")
 }
 
 export function onSupplyCountry(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "country")
+	getAndSupplyDataForItems(context, "country")
 }
 
 export function onSupplyAirport(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "airports")
+	getAndSupplyDataForItems(context, "airports")
 }
 
 export function onSupplyCity(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "cities")
+	getAndSupplyDataForItems(context, "cities")
 }
 
 export function onSupplyWeather(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "weather")
+	getAndSupplyDataForItems(context, "weather")
 }
 
 export function onSupplyTimestamp(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "timestamp")
+	getAndSupplyDataForItems(context, "timestamp")
 }
 
 export function onSupplyName(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "names")
+	getAndSupplyDataForItems(context, "names")
 }
 
 export function onSupplyAircraft(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "aircraft-type")
+	getAndSupplyDataForItems(context, "aircraft-type")
 }
 
 export function onSupplyAirlineName(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "airline-name")
+	getAndSupplyDataForItems(context, "airline-name")
 }
 
 export function onSupplyAirportCode(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "airport-code")
+	getAndSupplyDataForItems(context, "airport-code")
 }
 
 export function onSupplyDate(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "dates")
+	getAndSupplyDataForItems(context, "dates")
 }
 
 export function onSupplyEmail(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "email")
+	getAndSupplyDataForItems(context, "email")
 }
 
 export function onSupplyFlightDuration(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "flight-duration")
+	getAndSupplyDataForItems(context, "flight-duration")
 }
 
 export function onSupplyFlightNumber(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "flight-number")
+	getAndSupplyDataForItems(context, "flight-number")
 }
 
 export function onSupplyHotelAmenity(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "hotel-amenities")
+	getAndSupplyDataForItems(context, "hotel-amenities")
 }
 
 export function onSupplyHotelDescription(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "hotel-description")
+	getAndSupplyDataForItems(context, "hotel-description")
 }
 
 export function onSupplyHotelRoomType(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "hotel-room-name")
+	getAndSupplyDataForItems(context, "hotel-room-name")
 }
 
 export function onSupplyNameAndInitial(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "names-initials")
+	getAndSupplyDataForItems(context, "names-initials")
 }
 
 export function onSupplyUsername(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "username")
+	getAndSupplyDataForItems(context, "username")
 }
 
 export function onSupply24HourTime(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyDataForItems(dataKey, items, "24hour-format")
+	getAndSupplyDataForItems(context, "24hour-format")
 }
 
 export function onSupplyHeroImage(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyImageForItems(dataKey, items, "property")
+	getAndSupplyImageForItems(context, "property")
 }
 
 export function onSupplyRoomImage(context) {
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyImageForItems(dataKey, items, "room")
+	getAndSupplyImageForItems(context, "room")
 }
 
 export function onSupplyFacilityImage(context){
-	let dataKey = context.data.key
-	let items = util.toArray(context.data.items).map(sketch.fromNative)
-
-	getAndSupplyImageForItems(dataKey, items, "facilities")
+	getAndSupplyImageForItems(context, "facilities")
 }
 
 export function onSupplyRandomText(context) {
@@ -273,7 +201,9 @@ function supplyRandomData(context, data) {
 	}
 }
 
-function getAndSupplyDataForItems(dataKey, items, dataAddress){
+function getAndSupplyDataForItems(context, dataAddress){
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
 	// UI.message(Messaging.downloading)
 	fetchData((data) => {
 		items.forEach((_, index) => {
@@ -298,7 +228,11 @@ function getAndSupplyDataForItems(dataKey, items, dataAddress){
 	})
 }
 
-function getAndSupplyImageForItems(dataKey, items, dataAddress){
+function getAndSupplyImageForItems(context, dataAddress){
+
+	let dataKey = context.data.key
+	let items = util.toArray(context.data.items).map(sketch.fromNative)
+
 	UI.message(Messaging.downloading)
 	fetchData((data) => {
 		items.forEach((_, index) => {
