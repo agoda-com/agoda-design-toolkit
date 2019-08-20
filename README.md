@@ -1,7 +1,7 @@
 # Agoda Toolkit 2.3
 
 Quickly generate real content for your design workflow.
-[Download here](https://github.agodadev.io/design/agoda-sketchplugin/releases/download/2.2/Agoda-Toolkit-2.sketchplugin.zip).
+[Download here](https://github.com/agoda-com/agoda-design-toolkit/releases/latest/download/Agoda-Design-Toolkit.sketchplugin.zip).
 
 ## How to install
 
