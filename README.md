@@ -1,46 +1,47 @@
 # Agoda Toolkit 2.3
 
-Quickly generate real content for your design workflow
-👍[Download here](https://github.com/agoda-com/agoda-design-toolkit/releases/latest/download/Agoda-Design-Toolkit.sketchplugin.zip)
-![plugin](image_preview.png "plugin")
-👍[Download here](https://github.com/agoda-com/agoda-design-toolkit/releases/latest/download/Agoda-Design-Toolkit.sketchplugin.zip)
+Quickly generate real content for your design workflow.
+[Download here](https://github.agodadev.io/design/agoda-sketchplugin/releases/download/2.2/Agoda-Toolkit-2.sketchplugin.zip).
 
-#### Current features
-- Strings: `Short`, `Medium`, `Long`
-- Images 
+## How to install
+
+Unzip and double click the .sketchplugin
+
+## Current features
+
+- Content generator (String and Images)
 - Word count
-- Randomise 
-- Translation
-- Crossout
-- Data Supplier
+- Randomise
+- Google Translation
+- Pricing tool
+- Datasupplier
 
-#### Current datasets
+### Datasets
 
-| String | Images |
-| ---- | ----------------- |
-| Address |  Hero |     
-| Airport |  Facilities |              
-| City |     Rooms |     
-| Country | Tinyfaces |
-| Currency |
-| Dates |
-| Names |
-| Phone Number
-| Property Name
-| Timestamp 
-| Weather
+| String            | Images     |
+| ----------------- | ---------- |
+| 24-Hour Time      | Hero       |
+| Address           | Facilities |
+| Aircraft Type     | Rooms      |
+| Airline Name      | Tinyfaces  |
+| Airport Code      |
+| Airport Name      |
+| City              |
+| Date (DDMMYYYY)   |
+| Email             |
+| Flight Duration   |
+| Flight Number     |
+| Hotel Amenity     |
+| Hotel Description |
+| Hotel Name        |
+| Hotel Room Type   |
+| Name & Initial    |
+| Person Name       |
+| Timestamp         |
+| Username          |
+| Weather           |
 
-#### Future updates
-- [X] UI redesign
-- [X] Sketch Runner integration 
-- [X] Toast notification
-- [X] tinyface.es support
-- [ ] Sketch plugin update
-- [ ] Custom entry for strings & images
+## Current limitations
 
-Dataset | Short | Medium | Long
-| ----- | ----- | ------ | ---- 
-| Usernames | 4-7 | 8-11 | 12-22 
-| Email addresses | 15-17 | 18-21 | 22-33 |
-| Hotel amenities | 3-8 | 9-16 | 17-39
-| Hotel room names | 6-14 | 15-26 | 27-49
+Inserting content from the GUI panel does not allow you to refresh data or invoke overrides from the symbol panel. There is a technical limitation on Sketch API where the DataSupplier function is not exposed. See issue
+[#296](https://github.com/BohemianCoding/SketchAPI/issues/296)
