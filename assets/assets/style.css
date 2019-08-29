@@ -327,10 +327,10 @@ input[type=text], input[type=number], input[type=tel] {
 	display: inline-block;
 	outline: none;
 	margin-bottom: 5px;
-	-webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+	-webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
 }
 #crossoutModal .btn {
 	width: 100%;
